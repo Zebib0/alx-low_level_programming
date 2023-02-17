@@ -8,8 +8,13 @@
 int main(void)
 {
 	char ch;
-	char ch2;
-	 ch2 = tolower(ch);
-	 putchar(ch2);
-return (0);
+
+	ch = 'a';
+	while (ch <= 'z')
+	{
+		putchar(ch);
+		ch++;
+	}
+	putchar('\n');
+	return (0);
 }
