@@ -1,9 +1,10 @@
 #include <stdlib.h>
 #include<time.h>
 #include <stdio.h>
-/*
- * The main function checks whether a number is zero, postive or negative
- * It is the entery point
+/**
+ * main - Entry point
+ * Check whether the number is positive, negative or zero
+ * Return: Always 0 (success)
  */
 int main(void)
 {
