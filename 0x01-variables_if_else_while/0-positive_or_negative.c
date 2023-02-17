@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include<time.h>
-
+#include <stdio.h>
 /* The main function
  * it is the entery point 
  * Checks whether a number is zero, postive or negative
