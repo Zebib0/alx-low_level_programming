@@ -18,10 +18,10 @@ int main(void)
 	ll = sizeof(long long int);
 	l = sizeof(long int);
 	ch = sizeof(char);
-	printf("Size of a int: %d", i);
-	printf("Size of a float: %d", i);
-	printf("Size of a long long int: %d", i);
-	printf("Size of a long int: %d", i);
-	printf("Size of a char: %d", i);
+	printf("Size of a int: %d byte(s)\n", i);
+	printf("Size of a float: %d byte(s)\n", i);
+	printf("Size of a long long int: %d byte(s)\n", i);
+	printf("Size of a long int: %d byte(s)\n", i);
+	printf("Size of a char: %d byte(s)\n", i);
 	return (0);
 }
