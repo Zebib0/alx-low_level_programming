@@ -11,10 +11,14 @@ int main(void)
 	char ch;
 
 	ch = 'a';
-	while (ch <= 'z' && ch != 'q' && ch != 'e')
+	while (ch <= 'z')
 	{
+		if (ch != 'q' && ch != 'e')
+		{
+		continue;
 		putchar(ch);
 		ch++;
+		}
 	}
 	putchar('\n');
 	return (0);
