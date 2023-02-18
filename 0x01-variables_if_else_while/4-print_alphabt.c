@@ -3,7 +3,7 @@
 /**
  * main - Entry point
  * Description - print all lowercase and uppercase alphabet
- * Return: always 0 (success)
+ * Return: always 0 (succeds)
  */
 
 int main(void)
@@ -14,11 +14,8 @@ int main(void)
 	while (ch <= 'z')
 	{
 		if (ch != 'q' && ch != 'e')
-		{
-		continue;
-		putchar(ch);
+			putchar(ch);
 		ch++;
-		}
 	}
 	putchar('\n');
 	return (0);
