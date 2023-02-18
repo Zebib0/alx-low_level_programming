@@ -3,8 +3,7 @@
 int main(void)
 {
 	char str[] = "Programming is like building a multilingual puzzle\n";
-	int i;
-
+	
 	puts(str);
 	return (0);
 }
