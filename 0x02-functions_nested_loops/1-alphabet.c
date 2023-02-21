@@ -14,7 +14,7 @@ int main(void)
  * print_alphabet() - function to print alphabets
  * Description - The program displays all letters in lower case
  * print_alphabet - function to be printed
- *
+ * *
  */
 void print_alphabet(void)
 {
