@@ -1,21 +1,24 @@
-#include"main.h"
+#include "main.h"
 
 /**
- * _islower - Entry point
- * Description: checks if the character is lowercase
- * @c: the integer value
- * Return: 1 if success, else
+ * _isalpha - checks for alphabetic character
+ * @c: c is an ascii character
+ *
+ * Return: 1 (if letter)
  */
+
 int _isalpha(int c)
 {
-        int i = 'a';
-	int j = 'A';
-
-        while (i < 'z' && j < 'Z')
-        {
-                if (c == i || c == j)
-                        return (1);
-                i++;
-        }
-        return (0);
+	if (c >= 'a' && c <= 'z')
+	{
+		return (1);
+	}
+	else if (c >= 'A' && c <= 'Z')
+	{
+		return (1);
+	}
+	else
+	{
+		return (0);
+	}
 }
