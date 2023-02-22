@@ -1,18 +1,31 @@
 #include "main.h"
+
+
+void print_alphabet(void);
 /**
- * print_alphabet - Entry point
- * Description =to print alphabet letters
- * Return: Always 0 (success)
+ * main - check the code
+ *
+ * Return: Always 0.
+ */
+int main(void)
+{
+        print_alphabet();
+        return (0);
+}
+/**
+ * print_alphabet() - function to print alphabets
+ *
+ * Description - The program displays all letters in lower case
+ * Return : no return type
  */
 void print_alphabet(void)
 {
-	char a;
-
-	a = 'a';
-	while (a <= 'z')
-	{
-		_putchar(a);
-		a++;
-	}
-	_putchar('\n');
+char ch = 'a';
+while (ch <= 'z')
+{
+putchar(ch);
+ch++;
 }
+putchar('\n');
+}
+
