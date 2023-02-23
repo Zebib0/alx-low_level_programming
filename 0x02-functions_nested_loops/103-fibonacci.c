@@ -5,7 +5,7 @@
  */
 int main(void)
 {
-	long int first;
+	int first;
 	int second;
 	int seq;
 	int sum;
@@ -25,7 +25,7 @@ int main(void)
 			sum = sum + seq;
 		}
 	}
-	printf("%ld", (sum + 2));
+	printf("%d", (sum + 2));
 	putchar('\n');
 	return (0);
 }
