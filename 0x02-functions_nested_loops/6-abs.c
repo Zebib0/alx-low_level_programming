@@ -3,7 +3,7 @@
 /**
  * _abs - Entry point
  * Description: Absolute value of a number
- * @c: the integer value
+ * @i: the integer value
  * Return: 1 if success, else
  */
 
