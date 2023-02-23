@@ -6,14 +6,14 @@
 int main(void)
 {
 	int i;
-	unsigned long int first;
-	unsigned long int second;
-	unsigned long int seq;
+	int first;
+	int second;
+	int seq;
 
 	i = 3;
 	first = 1;
 	second = 2;
-	printf("%ld, %ld, ", first, second);
+	printf("%d, %d, ", first, second);
 	while (i <= 50)
 	{
 		seq = first + second;
@@ -21,10 +21,10 @@ int main(void)
 		second = seq;
 		if (i != 50)
 		{
-			printf("%ld, ", seq);
+			printf("%d, ", seq);
 		}
 		else
-			printf("%ld", seq);
+			printf("%d", seq);
 		i++;
 	}
 	putchar('\n');
