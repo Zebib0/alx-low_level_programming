@@ -20,11 +20,9 @@ int main(void)
 		while (n % i == 0)
 		{
 			n = n / i;
-			printf("%ld ", i);
 		}
 	}
-	if (n > 2)
-		printf("%ld ", n);
+	printf("%ld ", i);
 	putchar('\n');
 	return (0);
 }
