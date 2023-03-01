@@ -19,6 +19,7 @@ char *string_toupper(char *str)
 	for (i = 0; i < n; i++)
 	{
 		*s = toupper((unsigned char) *s);
+		s++;
 	}
 	return (s);
 }
