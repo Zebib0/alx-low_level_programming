@@ -13,8 +13,9 @@ char *string_toupper(char *str)
 {
 	int i;
 	int j;
+
 	j = strlen(str);
-	for(i = 0; i < j; i++)
+	for (i = 0; i < j; i++)
 		str[i] = toupper(str[i]);
 	return (str);
 }
