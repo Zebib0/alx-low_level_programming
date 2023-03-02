@@ -12,29 +12,26 @@
  * first letter.
  */
 
-char *cap_string(char *str)
+char *cap_string(char *s)
 {
-	int i;
-	int j;
+        int j, i;
+        bool exp;
 
-	j = strlen(str);
-	for (i = 0; i < j; i++)
-	{
-		bool exp = exp = (str[i] == 32) || (str[i] == 44) || (str[i] == 40) ||
-			 (str[i] == 41) || (str[i] == 46) ||
-			 (str[i] == 33) || (str[i] == 63) || (str[i] == 59) ||
-			 (str[i] == 123) || (str[i] == 125) || (str[i] == 34);
-		if (str[i] == '\n' || str[i] == '\t')
-		{
-			str[i + 1] = toupper(str[i + 1]);
-		}
-		else if (exp)
-		{
-			str[i + 1] = toupper(str[i + 1]);
-		}
-		else
-		{
-		}
-	}
-	return (str);
+        j= strlen(s);
+        if (s[0] >= 97 && s[0] <= 122)
+                s[0] = s[0] - 32;
+        for (i = 0; i < j; i++)
+        {
+                exp = (s[i] == 32) || (s[i] == 44) || (s[i] == 40) ||
+                (s[i] == 41) || (s[i] == 46) ||
+                (s[i] == 33) || (s[i] == 63) || (s[i] == 59) ||
+                (s[i] == 123) || (s[i] == 125) || (s[i] == 34);
+                if (exp || s[i] == '\n' || s[i] == '\t')
+                {
+                        if (s[i + 1] >= 97 && s[i + 1] <= 122)
+                                s[i + 1] = s[i + 1] - 32;
+                }
+        }
+        return (s);
 }
+
