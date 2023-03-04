@@ -1,34 +1,27 @@
-#include"main.h"
+#include "main.h"
 
-void print_number(int n)
+/**
+ * rot13 -  a   function that encodes a string using rot13.
+ * @s: An input string to encode using rot13
+ * Return: An encode string
+ */
+char *rot13(char *s)
 {
-	unsigned int i = 0;
-	if(i < 10)
-	{
-		if (n < 0)
-        {
-                _putchar('-');
-                n = -i;
-        }
-		else
-        {
-            n = i;
-        }
-}
+	int i = 0;
 
-	if (i >= 10)
+	while (s[i] != '\0')
 	{
-		putchar((i/10)+'0');
-		putchar((i%10)+'0');
-		printf("\n");
-		 if (n < 0)
-        {
-                _putchar('-');
-                n = -i;
-        }
-        else
-        {
-            n = i;
+		while ((s[i] >= 'a' && s[i] <= 'z') ||
+				(s[i] >= 'A' && s[i] <= 'Z'))
+		{
+			if ((s[i] >= 'a' && s[i] <= 'm') ||
+					(s[i] >= 'A' && s[i] <= 'M'))
+				s[i] += 13;
+			else
+				s[i] -= 13;
+			i++;
+		}
+		i++;
 	}
-	}
+	return (s);
 }
