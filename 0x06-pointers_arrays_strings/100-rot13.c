@@ -17,11 +17,11 @@ char *rot13(char *str)
 	n = strlen(str);
 		for (i = 0; i <= n; i++)
 		{
-			if ((s[i] >= 'a' && s[i] <= 'm') ||
-					(s[i] >= 'A' && s[i] <= 'M'))
-				s[i] += 13;
+			if ((str[i] >= 'a' && str[i] <= 'm') ||
+					(str[i] >= 'A' && str[i] <= 'M'))
+				str[i] += 13;
 			else
-				s[i] -= 13;
+				str[i] -= 13;
 		}
 		return (str);
 }
