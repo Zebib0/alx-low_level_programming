@@ -18,13 +18,9 @@ char *rot13(char *str)
 		for (i = 0; i <= n; i++)
 		{
 			if ((str[i] >= 'a' && str[i] <= 'm') || (str[i] >= 'A' && str[i] <= 'M'))
-			{
 				str[i] = str[i] + 13;
-			}
 			else
-			{
 				str[i] = str[i] - 13;
-			}
 		}
 		return (str);
 }
