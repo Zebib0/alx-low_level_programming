@@ -8,7 +8,8 @@
  * @c: char to be searched
  *
  *
- * Return: dest
+ * Return: pointer which contains
+ * value after the desired char
  */
 char *_strchr(char *s, char c)
 {
