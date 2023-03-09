@@ -1,19 +1,19 @@
 #include"main.h"
-int _sqrt_recursion(int n);
 /**
- * sqrt_test - contains the condition to obtain
- * natural square root of an integer.
- * @temp: base
- * @i: square root
- * Return: square root of a number
+ * _sqrt - _sqrt_recursion
+ * @n: integer paramtr
+ * @i: integer parameter
+ * Return: sqrt
  */
-int sqrt_test(int temp, int i)
+int _sqrt(int n, int i)
 {
-	if (i * i == temp)
-		return (i);
-	if (i * i > temp)
+	if (n < 0)
 		return (-1);
-	return (sqrt_test(temp, i + 1));
+	if ((i * i) > n)
+		return (-1);
+	if (i * i == n)
+		return (i);
+	return (_sqrt(n, i + 1));
 }
 /**
  * _sqrt_recursion - function to obtain
@@ -29,6 +29,6 @@ int _sqrt_recursion(int n)
 	else if (n < 0)
 		return (-1);
 	else
-		return (sqrt_test(n, 1));
+		return (_sqrt(n, 1));
 }
 
