@@ -22,10 +22,7 @@ int sqrt_test(int temp, int i)
  */
 int _sqrt_recursion(int n)
 {
-
-	if (n < 2)
-		return (n);
-	else if (n < 0)
+	if (n < 0)
 		return (-1);
 	return (sqrt_test(n, 1));
 }
