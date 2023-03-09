@@ -1,18 +1,18 @@
 #include"main.h"
 /**
- * check - checks for the square root
- * @a:int
- * @b:int
- *
- * Return: int
+ * sqrt_test - contains the condition to obtain
+ * natural square root of an integer.
+ * @temp: base
+ * @i: square root
+ * Return: square root of a number
  */
-int check(int a, int b)
+int sqrt_test(int temp, int i)
 {
-	if (a * a == b)
-		return (a);
-	if (a * a > b)
+	if (i * i == temp)
+		return (i);
+	if (i * i > temp)
 		return (-1);
-	return (check(a + 1, b));
+	return (sqrt_test(temp, i + 1));
 }
 /**
  * _sqrt_recursion - function to obtain
@@ -27,6 +27,5 @@ int _sqrt_recursion(int n)
 		return (n);
 	else if (n < 0)
 		return (-1);
-	return (check(1, n));
+	return (sqrt_test(n, 1));
 }
-
