@@ -1,0 +1,7 @@
+!<arch>
+//                                              22        `
+create_static_lib.sh/
+/0              0           0     0     644     42        `
+#!/bin/bash
+gcc -c *.c
+ar rc liball.a *.o
