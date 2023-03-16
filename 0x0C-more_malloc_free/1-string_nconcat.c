@@ -16,6 +16,15 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	size_1 = strlen(s1);
 	size_T = size_1 + n;
 	str = (char *)malloc(sizeof(char) * size_T + 1);
+	if (s1 == NULL)
+	{
+		return (NULL);
+	}
+
+	if (s2 == NULL)
+	{
+		return (NULL);
+	}
 
 	for (i = 0; i <= size_1; i++)
 	{
@@ -25,6 +34,8 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	{
 		str[size_1 + i] = s2[i];
 	}
+	str[size_T] = '\0';
+	
 	return (str);
 }
 
