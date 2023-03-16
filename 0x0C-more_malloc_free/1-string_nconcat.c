@@ -14,19 +14,22 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	char *str;
 	unsigned int size_1, size_T, i;
 
+	if (s1 == NULL)
+        {
+                return (NULL);
+        }
+
+        if (s2 == NULL)
+        {
+                return (NULL);
+        }
+
+
 	size_1 = strlen(s1);
 	size_T = size_1 + n;
 	str = (char *)malloc(sizeof(char) * size_T + 1);
-	if (s1 == NULL)
-	{
+	if(str == NULL)
 		return (NULL);
-	}
-
-	if (s2 == NULL)
-	{
-		return (NULL);
-	}
-
 	for (i = 0; i < size_1; i++)
 	{
 		str[i] = s1[i];
