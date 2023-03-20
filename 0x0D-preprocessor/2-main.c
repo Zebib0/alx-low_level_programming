@@ -3,7 +3,7 @@
 
 int main()
 {
-	printf(__FILE__);
+	printf("%s",__FILE__);
 	putchar('\n');
     return 0;
 }
