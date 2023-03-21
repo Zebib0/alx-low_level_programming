@@ -26,7 +26,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 		return (NULL);
 	}
 	for (i = 0; i <= size1; i++)
-		(*dog1).name = name;
+		(*dog1).name[i] = name[i];
 	(*dog1).age = age;
 	for (size2 = 0; owner[size2]; size2++)
 		size2++;
