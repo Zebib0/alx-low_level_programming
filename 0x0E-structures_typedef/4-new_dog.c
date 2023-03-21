@@ -1,4 +1,5 @@
 #include"dog.h"
+#include<string.h>
 /**
  * new_dog - a function that assigns value
  * for the struct variables
@@ -11,14 +12,13 @@ dog_t *new_dog(char *name, float age, char *owner)
 {
 	int size1, size2, i;
 	dog_t *dog1;
-
 	if (name == NULL || owner == NULL || age < 0) 
 		return (NULL);
 	dog1 = malloc(sizeof(struct dog));
 	if (dog1 == NULL)
 		return (NULL);
-	for (size1 = 0; name[size1]; size1++)
-		size1++;
+	size1 = strlen(name);
+	size2 = strlen(owner);
 	(*dog1).name = malloc(sizeof(char) * size1 + 1);
 	if ((*dog1).name == NULL)
 	{
@@ -28,8 +28,6 @@ dog_t *new_dog(char *name, float age, char *owner)
 	for (i = 0; i <= size1; i++)
 		(*dog1).name[i] = name[i];
 	(*dog1).age = age;
-	for (size2 = 0; owner[size2]; size2++)
-		size2++;
 	(*dog1).owner = malloc(sizeof(char) * size2 + 1);
 	if ((*dog1).owner == NULL)
 	{
