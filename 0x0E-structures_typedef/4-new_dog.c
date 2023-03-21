@@ -9,15 +9,35 @@
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
+	int size1, size2, i;
 	dog_t *dog1;
 
 	if (name == NULL || owner == NULL)
-		return(NULL);
+		return (NULL);
 	dog1 = malloc(sizeof(struct dog));
 	if (dog1 == NULL)
 		return (NULL);
-	(*dog1).name = name;
+	for (size1 = 0; name[size1]; size1++)
+		size1++;
+	(*dog1).name = malloc(sizeof(char) * size1);
+	if ((*dog1).name == NULL)
+	{
+		free((*dog1).name);
+		return (NULL);
+	}
+	for (i = 0; i <= size1; i++)
+		(*dog1).name = name;
 	(*dog1).age = age;
-	(*dog1).owner = owner;
+	for (size2 = 0; owner[size2]; size2++)
+		size2++;
+	(*dog1).owner = malloc(sizeof(char) * size2);
+	if ((*dog1).owner == NULL)
+	{
+		free((*dog1).owner);
+		free(dog1);
+		return (NULL);
+	}
+	for (i = 0; i <= size2; i++)
+		(*dog1).owner[i] = owner[i];
 	return (dog1);
 }
