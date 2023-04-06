@@ -7,7 +7,6 @@
  *
  * Return: integers
  */
-
 unsigned int binary_to_uint(const char *b)
 {
 	unsigned int decimalnum = 0, p = 0;
@@ -17,8 +16,8 @@ unsigned int binary_to_uint(const char *b)
 	for (i = size - 1; i >= 0; i--)
 	{
 		if (b[i] == '1')
-		decimalnum = decimalnum + pow(2, p);
+			decimalnum = decimalnum + pow(2, p);
 		p++;
 	}
-	return decimalnum;
+	return (decimalnum);
 }
