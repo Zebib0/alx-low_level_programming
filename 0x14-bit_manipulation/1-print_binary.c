@@ -6,19 +6,19 @@ unsigned long int reverse_number(unsigned long int n);
  */
 void print_binary(unsigned long int n)
 {
-	unsigned long int binary = n;
 	int i = 0;
+	int flag;
 
-	while (binary > 0)
+	if(n == 0)
 	{
-		binary = binary >> 1;
-		i++;
+		printf("0");
+		return;
 	}
-	for(;i >= 0; i--)
+	for (i = sizeof(n) * 8 - 1, flag = 0; i >= 0; i--)
 	{
-		if((n >> i) & 1)
-			printf("1");
-		else
-			printf("0");
+		if ((n >> i) & 1)
+			flag = 1;
+		if (flag == 1)
+			((n >> i) & 1) ? printf("%c",'1') : printf("%c", '0');
 	}
 }
