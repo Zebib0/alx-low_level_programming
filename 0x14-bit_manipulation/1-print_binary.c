@@ -9,7 +9,7 @@ void print_binary(unsigned long int n)
 	int i = 0;
 	int flag;
 
-	if(n == 0)
+	if (n == 0)
 	{
 		printf("0");
 		return;
@@ -19,6 +19,6 @@ void print_binary(unsigned long int n)
 		if ((n >> i) & 1)
 			flag = 1;
 		if (flag == 1)
-			((n >> i) & 1) ? printf("%c",'1') : printf("%c", '0');
+			((n >> i) & 1) ? printf("%c", '1') : printf("%c", '0');
 	}
 }
