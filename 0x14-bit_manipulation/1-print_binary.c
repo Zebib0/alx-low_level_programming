@@ -6,7 +6,7 @@
  */
 void print_binary(unsigned long int n)
 {
-	int i;
+	int i, zero = 1;
 	unsigned long int m;
 	int f;
 	f = sizeof(unsigned long int) * 8 - 1;
@@ -14,9 +14,20 @@ void print_binary(unsigned long int n)
 	for (i = f; i >= 0; i--)
 	{
 		m = 1UL << i;
-		if (n & m)
+		if (n & m){
 			_putchar('1');
-		else
+			zero = 0;
+		}
+		else if (!zero)
+		{
 			_putchar('0');
 	}
+		m >>= 1;
+	}
+
+	if (zero)
+	{
+		_putchar('0');
+	}
+
 }
