@@ -34,7 +34,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	 */
 	bytes_read = fread(buff, 1, letters, f);
 	buff[bytes_read] = '\0';
-	byte_written = printf("%s", buff);
+	byte_written = fwrite(buff, 1, bytes_read, stdout);
 	if (byte_written != bytes_read)
 	{
 		fclose(f);
