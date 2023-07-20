@@ -1,62 +1,64 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <fcntl.h>
-#include <errno.h>
-#include <string.h>
+#include"main.h"
 
-#define BUFFER_SIZE 1024
+/**
+ * cp - a function which copies a file content to another file
+ * @file_form: source file
+ * @desination_file: the file copies to
+ * Return: -1 on failure and 1 on success
+ */
+void cp(char *file_form, char *destination_file)
+{
+	int fd_read, fd_write;
+	ssize_t n_read, n_written;
+	char *buf;
 
-void print_error(char *msg, char *filename, int fd) {
-    dprintf(STDERR_FILENO, msg, filename, fd);
+	buf = malloc(1024);
+	if (buf == NULL)
+	{
+		perror("Error: memory allocation failed");
+		exit(EXIT_FAILURE);
+	}
+
+	fd_read = open(file_form, O_RDONLY);
+	if (fd_read == -1)
+	{
+		perror("Error: cannot open source file");
+		exit(EXIT_FAILURE);
+	}
+	fd_write = open(destination_file, O_CREAT | O_WRONLY | O_TRUNC, 0664);
+	if (fd_write == -1)
+	{
+		 perror("Error: cannot open source file");
+                exit(EXIT_FAILURE);
+        }
+	while ((n_read = read(fd_read, buf, 1024)) > 0)
+	{
+		n_written = write(fd_write, buf, n_read);
+		if (n_written != n_read)
+		{
+			 perror("Error: Error");
+			 exit(EXIT_FAILURE);
+		}
+
+		if (n_read == -1)
+		{
+			perror("Error: Error");
+                         exit(EXIT_FAILURE);
+		}
+
+		free(buf);
+		close(fd_read);
+		close(fd_write);
+	}
 }
 
-int main(int argc, char *argv[]) {
-	int fd_to, fd_from;
-	char *file_from, *file_to;
-
-    if (argc != 3) {
-        print_error("Usage: cp file_from file_to\n", NULL, 0);
-        exit(97);
-    }
-    *file_from = argv[1];
-    *file_to = argv[2];
-    fd_from = open(file_from, O_RDONLY);
-    if (fd_from < 0) {
-        print_error("Error: Can't read from file %s\n", file_from, fd_from);
-        exit(98);
-    }
-    fd_to = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
-    if (fd_to < 0) {
-        print_error("Error: Can't write to %s\n", file_to, fd_to);
-        close(fd_from);
-        exit(99);
-    }
-    char buffer[BUFFER_SIZE];
-    ssize_t bytes_read, bytes_written;
-    while ((bytes_read = read(fd_from, buffer, BUFFER_SIZE)) > 0) {
-        bytes_written = write(fd_to, buffer, bytes_read);
-        if (bytes_written != bytes_read) {
-            print_error("Error: Can't write to %s\n", file_to, fd_to);
-            close(fd_from);
-            close(fd_to);
-            exit(99);
-        }
-    }
-    if (bytes_read < 0) {
-        print_error("Error: Can't read from file %s\n", file_from, fd_from);
-        close(fd_from);
-        close(fd_to);
-        exit(98);
-    }
-    if (close(fd_from) < 0) {
-        print_error("Error: Can't close fd %d\n", NULL, fd_from);
-        close(fd_to);
-        exit(100);
-    }
-    if (close(fd_to) < 0) {
-        print_error("Error: Can't close fd %d\n", NULL, fd_to);
-        exit(100);
-    }
-    return 0;
+int main(int ac, char *av[])
+{
+	if (ac != 3)
+	{
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+		exit(97);
+	}
+	cp(av[1], av[2]);
+	return (0);
 }
