@@ -3,10 +3,10 @@
 /**
  * cp - a function which copies a file content to another file
  * @file_form: source file
- * @dest_file: function which file is copied to
+ * @file_to: function which file is copied to
  * Return: -1 on failure and 1 on success
  */
-void cp(char *file_form, char *dest_file)
+void cp(char *file_form, char *file_to)
 {
 	int fd_read, fd_write;
 	ssize_t n_read, n_written;
@@ -25,7 +25,7 @@ void cp(char *file_form, char *dest_file)
 		perror("Error: cannot open source file");
 		exit(EXIT_FAILURE);
 	}
-	fd_write = open(dest_file, O_CREAT | O_WRONLY | O_TRUNC, 0664);
+	fd_write = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	if (fd_write == -1)
 	{
 		perror("Error: cannot open source file");
