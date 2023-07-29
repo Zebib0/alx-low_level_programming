@@ -10,9 +10,9 @@ void cp(char *file_form, char *file_to)
 {
 	int fd_read, fd_write;
 	ssize_t n_read, n_written;
-	char *buf;
+	char **buf;
 
-	buf = malloc(1024);
+	buf = malloc(sizeof(char *) * 1024);
 	if (buf == NULL)
 	{
 		perror("Error: memory allocation failed");
@@ -23,13 +23,14 @@ void cp(char *file_form, char *file_to)
 	if (fd_read == -1)
 	{
 		perror("Error: cannot open source file");
-		exit(EXIT_FAILURE);
+		exit(98);
 	}
 	fd_write = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	if (fd_write == -1)
 	{
+		close(fd_read);
 		perror("Error: cannot open source file");
-		exit(EXIT_FAILURE);
+		exit(98);
 	}
 	while ((n_read = read(fd_read, buf, 1024)) > 0)
 	{
